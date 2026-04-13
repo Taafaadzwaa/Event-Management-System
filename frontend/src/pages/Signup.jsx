@@ -32,24 +32,31 @@ const Signup = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex">
+    
+          {/* Left Panel - hidden on mobile */}
+          <div className="hidden lg:flex w-1/2 bg-indigo-900 flex-col justify-center items-center text-white p-12">
+          <div className="mb-6">
+            <img
+            src={logo}
+            alt="Event Manager Logo"
+            className="w-40 h-50 object-contain rounded-2xl shadow-lg"
+            />
+            </div>
 
-      {/* Left Panel - Hidden on mobile */}
-      <div className="hidden lg:flex w-1/2 bg-indigo-900 flex-col justify-center items-center text-white p-12">
-        <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-indigo-900 text-3xl font-bold mb-6 shadow-lg">
-          E
-        </div>
+
+        
         <h1 className="text-4xl font-bold mb-3">
           Join Event<span className="text-purple-400">Manager</span>
         </h1>
         <p className="text-indigo-200 text-center text-lg max-w-sm leading-relaxed">
-          Create your free account and start exploring events today.
+          Create your free account and start exploring the tech community events today.
         </p>
 
         <div className="mt-12 space-y-3 w-full max-w-sm">
           {[
-            { icon: '🎟️', text: 'Browse upcoming events' },
-            { icon: '📍', text: 'Find events near you' },
-            { icon: '📅', text: 'Never miss an event' },
+            { icon: '*', text: 'Browse upcoming tech + school events' },
+            { icon: '*', text: 'Find events near you' },
+            { icon: '*', text: 'Never miss an event' },
           ].map((item) => (
             <div key={item.text} className="flex items-center gap-3 bg-indigo-800 border border-indigo-700 rounded-xl px-4 py-3">
               <span className="text-xl">{item.icon}</span>

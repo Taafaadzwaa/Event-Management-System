@@ -4,6 +4,7 @@ import API from '../api/axios'
 import { useAuth } from '../context/AuthContext'
 import logo from "../assets/Taffi’s Event Manager Logo.png";
 
+
 const Login = () => {
   const { login } = useAuth()
   const navigate = useNavigate()
@@ -39,12 +40,22 @@ const Login = () => {
 
       {/* Left Panel - hidden on mobile */}
       <div className="hidden lg:flex w-1/2 bg-indigo-900 flex-col justify-center items-center text-white p-12">
-        <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-indigo-900 text-3xl font-bold mb-6 shadow-lg">
-          E
+      <div className="mb-6">
+        <img
+        src={logo}
+        alt="Event Manager Logo"
+        className="w-40 h-50 object-contain rounded-2xl shadow-lg"
+        />
         </div>
+
+
+        
         <h1 className="text-4xl font-bold mb-4">
           Event<span className="text-purple-400">Manager</span>
         </h1>
+
+
+        
         <p className="text-indigo-200 text-center text-lg max-w-sm leading-relaxed">
           Manage and discover amazing events all in one place.
         </p>
@@ -66,7 +77,7 @@ const Login = () => {
                     <div className="flex items-center gap-4">
                       <div className="relative">
                         <img
-                          src={logo} // or your imported logo
+                          src={logo} // imported logo
                           alt="Event Manager Logo"
                           className="w-12 h-12 rounded-2xl object-cover shadow-lg border border-white/20"
                         />
