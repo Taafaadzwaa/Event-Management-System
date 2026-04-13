@@ -37,3 +37,8 @@ function App() {
 }
 
 export default App
+
+//cd backend
+//node index.js
+//cd frontend
+//npm run dev

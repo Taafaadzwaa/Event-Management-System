@@ -96,7 +96,7 @@ const AdminDashboard = () => {
       <div className="max-w-6xl mx-auto px-6 py-8">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-gray-800">
-            🛠️ Admin Dashboard
+            Admin Dashboard
           </h2>
           {!showForm && (
             <button
@@ -112,7 +112,7 @@ const AdminDashboard = () => {
         {showForm && (
           <div className="bg-white rounded-2xl shadow-md p-6 mb-8">
             <h3 className="text-lg font-bold text-gray-800 mb-4">
-              {editingId ? '✏️ Edit Event' : '➕ Create New Event'}
+              {editingId ? 'Edit Event' : '➕ Create New Event'}
             </h3>
 
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -228,3 +228,7 @@ const AdminDashboard = () => {
 }
 
 export default AdminDashboard
+
+/**
+ email: admin@events.com
+ password : admin123 */
