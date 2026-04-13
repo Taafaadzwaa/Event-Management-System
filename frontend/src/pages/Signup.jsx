@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import API from '../api/axios'
 import { useAuth } from '../context/AuthContext'
+import logo from "../assets/Taffi’s Event Manager Logo.png";
 
 const Signup = () => {
   const { login } = useAuth()
@@ -62,10 +63,17 @@ const Signup = () => {
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-10">
         <div className="w-full max-w-md">
 
-          {/* Mobile Logo */}
-          <div className="flex lg:hidden items-center gap-2 mb-8">
-            <div className="bg-indigo-900 text-white w-9 h-9 rounded-xl flex items-center justify-center font-bold shadow">
-              E
+          
+           {/* Logo */}
+          <div className="flex items-center gap-4">
+            <div className="relative">
+              <img
+                src={logo} // or your imported logo
+                alt="Event Manager Logo"
+                className="w-12 h-12 rounded-2xl object-cover shadow-lg border border-white/20"
+              />
+              {/* a lil glow effect */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 blur-md opacity-60"></div>
             </div>
             <span className="text-xl font-bold text-indigo-900">Event<span className="text-purple-600">Manager</span></span>
           </div>
@@ -75,7 +83,7 @@ const Signup = () => {
 
           {error && (
             <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl mb-6 text-sm">
-              ⚠️ {error}
+               {error}
             </div>
           )}
 
@@ -88,7 +96,7 @@ const Signup = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                placeholder="John Doe"
+                placeholder="Taffi Chipa "
                 className="w-full border border-gray-200 bg-gray-50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-400 focus:bg-white transition"
               />
             </div>
@@ -131,7 +139,7 @@ const Signup = () => {
           <p className="text-center text-sm text-gray-400 mt-8">
             Already have an account?{' '}
             <Link to="/login" className="text-purple-600 font-bold hover:underline">
-              Sign in
+              Log in
             </Link>
           </p>
         </div>

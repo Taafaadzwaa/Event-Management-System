@@ -18,7 +18,7 @@ const EventCard = ({ event, isAdmin, onEdit, onDelete }) => {
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 sm:p-6 flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
 
-      {/* Status & Capacity */}
+      {/* Status and the  capacity */}
       <div className="flex justify-between items-center">
         <span className={`text-xs font-bold px-3 py-1 rounded-full ${status.color}`}>
           ● {status.label}
@@ -31,7 +31,7 @@ const EventCard = ({ event, isAdmin, onEdit, onDelete }) => {
       {/* Accent bar */}
       <div className="w-10 h-1 bg-purple-500 rounded-full group-hover:w-16 transition-all duration-300" />
 
-      {/* Title & Description */}
+      {/* Title + Description */}
       <div>
         <h3 className="text-base sm:text-lg font-bold text-indigo-900 mb-1 group-hover:text-purple-700 transition-colors duration-200">
           {event.title}
@@ -41,32 +41,32 @@ const EventCard = ({ event, isAdmin, onEdit, onDelete }) => {
         </p>
       </div>
 
-      {/* Details */}
+      {/* Details of the evnt */}
       <div className="space-y-2 border-t border-gray-50 pt-3">
         <div className="flex items-center gap-2 text-sm text-gray-500">
-          <span>📍</span>
+          <span>Location: </span>
           <span className="font-medium truncate">{event.location}</span>
         </div>
         <div className="flex items-center gap-2 text-sm text-gray-500">
-          <span>📅</span>
+          <span>Date: </span>
           <span className="font-medium">{formattedDate}</span>
         </div>
       </div>
 
-      {/* Admin Buttons */}
+      {/* the admin vuttons */}
       {isAdmin && (
         <div className="flex gap-2 pt-1">
           <button
             onClick={() => onEdit(event)}
             className="flex-1 bg-indigo-50 text-indigo-700 py-2 rounded-xl text-sm font-bold hover:bg-indigo-100 transition-all duration-200"
           >
-            ✏️ Edit
+            Edit event
           </button>
           <button
             onClick={() => onDelete(event.id)}
             className="flex-1 bg-red-50 text-red-500 py-2 rounded-xl text-sm font-bold hover:bg-red-100 transition-all duration-200"
           >
-            🗑️ Delete
+            Delete event
           </button>
         </div>
       )}

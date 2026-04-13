@@ -59,7 +59,7 @@ const UserDashboard = () => {
         {/* Header */}
         <div className="mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-indigo-900">
-            Good day, {user?.name?.split(' ')[0]} 👋
+            Good day, {user?.name?.split(' ')[0]} 
           </h2>
           <p className="text-gray-400 mt-1 text-sm sm:text-base">
             Browse and explore all upcoming events

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import API from '../api/axios'
 import { useAuth } from '../context/AuthContext'
+import logo from "../assets/Taffi’s Event Manager Logo.png";
 
 const Login = () => {
   const { login } = useAuth()
@@ -61,19 +62,26 @@ const Login = () => {
         <div className="w-full max-w-md">
 
           {/* Mobile Logo */}
-          <div className="flex lg:hidden items-center gap-3 mb-8">
-            <div className="bg-indigo-900 text-white w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg">
-              E
-            </div>
-            <span className="text-2xl font-bold text-indigo-900">Event<span className="text-purple-600">Manager</span></span>
-          </div>
+           {/* Logo */}
+                    <div className="flex items-center gap-4">
+                      <div className="relative">
+                        <img
+                          src={logo} // or your imported logo
+                          alt="Event Manager Logo"
+                          className="w-12 h-12 rounded-2xl object-cover shadow-lg border border-white/20"
+                        />
+                        {/* a lil glow effect */}
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 blur-md opacity-60"></div>
+                      </div>
+                      <span className="text-xl font-bold text-indigo-900">Event<span className="text-purple-600">Manager</span></span>
+                    </div>
 
           <h2 className="text-3xl font-bold text-indigo-900 mb-2">Welcome back</h2>
-          <p className="text-gray-400 mb-8">Sign in to your account to continue</p>
+          <p className="text-gray-400 mb-8">Login to your account to continue</p>
 
           {error && (
             <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl mb-6 text-sm">
-              ⚠️ {error}
+               {error}
             </div>
           )}
 
@@ -109,14 +117,14 @@ const Login = () => {
               disabled={loading}
               className="w-full bg-indigo-900 text-white py-3 rounded-xl font-bold hover:bg-purple-700 transition-all duration-200 disabled:opacity-50 shadow-md"
             >
-              {loading ? 'Signing in...' : 'Sign In →'}
+              {loading ? 'Logging in...' : 'Log in →'}
             </button>
           </form>
 
           <p className="text-center text-sm text-gray-400 mt-8">
             Don't have an account?{' '}
             <Link to="/signup" className="text-purple-600 font-bold hover:underline">
-              Create one free
+              Create one for free
             </Link>
           </p>
         </div>

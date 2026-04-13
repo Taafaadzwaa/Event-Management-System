@@ -4,7 +4,7 @@ const DeleteModal = ({ onConfirm, onCancel }) => {
       <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4 border border-gray-100">
         <div className="text-center mb-6">
           <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <span className="text-3xl">🗑️</span>
+            <span className="text-3xl">Delete</span>
           </div>
           <h3 className="text-xl font-bold text-indigo-900 mb-2">Delete Event?</h3>
           <p className="text-gray-400 text-sm leading-relaxed">

@@ -66,10 +66,10 @@ const AdminDashboard = () => {
     try {
       if (editingId) {
         await API.put(`/events/${editingId}`, form)
-        toast.success('Event updated! ✨')
+        toast.success('Event updated! ')
       } else {
         await API.post('/events', form)
-        toast.success('Event created! 🎉')
+        toast.success('Event created! ')
       }
       setForm(emptyForm)
       setEditingId(null)
@@ -169,7 +169,7 @@ const AdminDashboard = () => {
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 sm:p-8 mb-8 sm:mb-10">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 bg-indigo-900 rounded-xl flex items-center justify-center text-white font-bold shrink-0">
-                {editingId ? '✏️' : '➕'}
+                {editingId ? 'Edit' : 'Add'}
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-indigo-900">
                 {editingId ? 'Edit Event' : 'Create New Event'}
@@ -263,7 +263,7 @@ const AdminDashboard = () => {
         {/* Search & Filter */}
         <div className="flex flex-col sm:flex-row gap-3 mb-5">
           <div className="relative flex-1">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm">🔍</span>
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></span>
             <input
               type="text"
               placeholder="Search by title or location..."
