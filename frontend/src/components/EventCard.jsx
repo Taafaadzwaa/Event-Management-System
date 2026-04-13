@@ -1,3 +1,11 @@
+const getStatusBadge = (date, capacity) => {
+  const today = new Date()
+  const eventDate = new Date(date)
+  if (eventDate < today) return { label: 'Past', color: 'bg-gray-100 text-gray-500' }
+  if (capacity <= 10) return { label: 'Almost Full', color: 'bg-red-50 text-red-500' }
+  return { label: 'Upcoming', color: 'bg-green-50 text-green-600' }
+}
+
 const EventCard = ({ event, isAdmin, onEdit, onDelete }) => {
   const formattedDate = new Date(event.date).toLocaleDateString('en-ZA', {
     year: 'numeric',
@@ -5,33 +13,58 @@ const EventCard = ({ event, isAdmin, onEdit, onDelete }) => {
     day: 'numeric'
   })
 
+  const status = getStatusBadge(event.date, event.capacity)
+
   return (
-    <div className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-3 hover:shadow-lg transition">
-      <div className="flex justify-between items-start">
-        <h3 className="text-lg font-bold text-gray-800">{event.title}</h3>
-        <span className="bg-blue-100 text-blue-600 text-xs font-semibold px-3 py-1 rounded-full">
+    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 sm:p-6 flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+
+      {/* Status & Capacity */}
+      <div className="flex justify-between items-center">
+        <span className={`text-xs font-bold px-3 py-1 rounded-full ${status.color}`}>
+          ● {status.label}
+        </span>
+        <span className="text-xs font-semibold text-gray-400 bg-gray-50 px-3 py-1 rounded-full">
           {event.capacity} seats
         </span>
       </div>
 
-      <p className="text-gray-500 text-sm">{event.description}</p>
+      {/* Accent bar */}
+      <div className="w-10 h-1 bg-purple-500 rounded-full group-hover:w-16 transition-all duration-300" />
 
-      <div className="flex flex-col gap-1 text-sm text-gray-600">
-        <span>📍 {event.location}</span>
-        <span>📅 {formattedDate}</span>
+      {/* Title & Description */}
+      <div>
+        <h3 className="text-base sm:text-lg font-bold text-indigo-900 mb-1 group-hover:text-purple-700 transition-colors duration-200">
+          {event.title}
+        </h3>
+        <p className="text-gray-400 text-sm line-clamp-2 leading-relaxed">
+          {event.description || 'No description provided.'}
+        </p>
       </div>
 
+      {/* Details */}
+      <div className="space-y-2 border-t border-gray-50 pt-3">
+        <div className="flex items-center gap-2 text-sm text-gray-500">
+          <span>📍</span>
+          <span className="font-medium truncate">{event.location}</span>
+        </div>
+        <div className="flex items-center gap-2 text-sm text-gray-500">
+          <span>📅</span>
+          <span className="font-medium">{formattedDate}</span>
+        </div>
+      </div>
+
+      {/* Admin Buttons */}
       {isAdmin && (
-        <div className="flex gap-2 mt-2">
+        <div className="flex gap-2 pt-1">
           <button
             onClick={() => onEdit(event)}
-            className="flex-1 bg-yellow-400 text-white py-1 rounded-lg text-sm font-semibold hover:bg-yellow-500 transition"
+            className="flex-1 bg-indigo-50 text-indigo-700 py-2 rounded-xl text-sm font-bold hover:bg-indigo-100 transition-all duration-200"
           >
             ✏️ Edit
           </button>
           <button
             onClick={() => onDelete(event.id)}
-            className="flex-1 bg-red-500 text-white py-1 rounded-lg text-sm font-semibold hover:bg-red-600 transition"
+            className="flex-1 bg-red-50 text-red-500 py-2 rounded-xl text-sm font-bold hover:bg-red-100 transition-all duration-200"
           >
             🗑️ Delete
           </button>

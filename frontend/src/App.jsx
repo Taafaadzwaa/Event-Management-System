@@ -5,11 +5,35 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import AdminDashboard from './pages/AdminDashboard'
 import UserDashboard from './pages/UserDashboard'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            success: {
+              style: {
+                background: '#1e1b4b',
+                color: '#fff',
+                borderRadius: '12px',
+                fontSize: '14px',
+              },
+              iconTheme: { primary: '#818cf8', secondary: '#fff' }
+            },
+            error: {
+              style: {
+                background: '#1e1b4b',
+                color: '#fff',
+                borderRadius: '12px',
+                fontSize: '14px',
+              },
+              iconTheme: { primary: '#f87171', secondary: '#fff' }
+            }
+          }}
+        />
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
